@@ -38,7 +38,7 @@ class << Interception
   elsif defined?(JRuby)
 
     require 'java'
-    $CLASSPATH << File.expand_path('../../ext/', __FILE__)
+    require 'interception.jar'
     java_import org.pryrepl.InterceptionEventHook
 
     def start
@@ -61,7 +61,7 @@ class << Interception
 
   else #MRI
 
-    require File.expand_path('../../ext/interception', __FILE__)
+    require 'interception.so'
 
   end
 end
